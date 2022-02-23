@@ -1,8 +1,12 @@
 import classes from "../styles/MainLayout.module.css";
 import ThemeProvider from "./ThemeProvider";
 import { useTheme } from "../hooks/useTheme";
+import React, { ReactChild, ReactChildren } from "react";
 
-function MainLayout({ children }) {
+interface LayoutInterface {
+	children: ReactChild | ReactChildren;
+}
+function MainLayout({ children }: LayoutInterface) {
 	const theme = useTheme();
 	console.log("theme in mainlayout", theme);
 	return (

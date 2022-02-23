@@ -1,8 +1,10 @@
-import { useReducer } from "react";
+import { ReactChild, ReactChildren, useReducer } from "react";
 import { ThemeContext, ThemeDispatchContext } from "../contexts/ThemeContext";
 import { themeReducer } from "../reducers/themeReducer";
-
-function ThemeProvider({ children }) {
+interface ThemeProviderInterface {
+	children: ReactChild | ReactChildren;
+}
+function ThemeProvider({ children }: ThemeProviderInterface) {
 	const [theme, dispatch] = useReducer(themeReducer, { dark: false });
 
 	return (

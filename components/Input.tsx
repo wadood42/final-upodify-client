@@ -12,7 +12,7 @@ function Input({ label, type }: InputProps) {
 	const theme = useTheme();
 	const [focus, setFocus] = useState(false);
 
-	function handleFocus(e) {
+	function handleFocus(e: React.FocusEvent<HTMLDivElement, Element>) {
 		console.log("E", e);
 		setFocus(true);
 	}

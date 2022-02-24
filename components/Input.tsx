@@ -6,9 +6,12 @@ import classes from "../styles/Form.module.css";
 interface InputProps {
 	label: string;
 	type: string;
+	handleChange: Function;
+	value: string;
+	name: string;
 }
 
-function Input({ label, type }: InputProps) {
+function Input({ label, type, handleChange, value, name }: InputProps) {
 	const theme = useTheme();
 	const [focus, setFocus] = useState(false);
 
@@ -24,7 +27,12 @@ function Input({ label, type }: InputProps) {
 				theme.dark ? classes.darkInputContainer : classes.inputContainer
 			} ${focus && classes.focus}`}>
 			<h6>{label}</h6>
-			<input type={type} />
+			<input
+				autoComplete='off'
+				name={name}
+				type={type}
+				onChange={(e) => handleChange(e)}
+			/>
 		</div>
 	);
 }
